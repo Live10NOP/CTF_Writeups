@@ -2,6 +2,8 @@
 
 REPORT: 'My Customer forgot his Password. His Fname is Jimmy. Can you get his password for me? It should be in the users table'
 
+https://challenges.neverlanctf.com:1150
+
 # Solution
 
 We simply need to create a SQL query that will return the Jimmy's password.
