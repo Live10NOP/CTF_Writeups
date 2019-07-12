@@ -11,6 +11,7 @@ As described on the website of the challenge, we only need to consider the decry
 
 Let us start by reading up on `rule 126`, I used [this](http://mathworld.wolfram.com/Rule126.html) webpage.
 For convienence, I will illustrate the transition rules below.
+
 <table>
 	<tr>
 		<td> 1. </td> <td><img src="images/rule1.png" width="120" height="80"> </td>
@@ -104,14 +105,16 @@ Here is a visual representation:
 		<td> <tt>?</tt> </td><td> <tt>0</tt> </td><td> <tt>1</tt> </td><td> <tt>1</tt> </td><td> <tt>0</tt> </td><td> <tt>?</tt> </td>
 	</tr>
 </table>
+
 <table>
 	<tr>
-		<td> <tt>a</tt> </td><td> <tt>a</tt> </td><td>...</td><td> <tt>a</tt> </td><td> <tt>a</tt> </td><td> <tt>A</tt> </td><td> <tt>A</tt> </td><td>...</td><td> <tt>A</tt> </td><td> <tt>A</tt> </td><td> <tt>a</tt> </td><td> <tt>a</tt> </td><td>...</td><td> <tt>a</tt> </td><td> <tt>a</tt> </td>
+	<td> <tt>a</tt> </td><td> <tt>a</tt> </td><td>...</td><td> <tt>a</tt> </td><td> <tt>a</tt> </td><td> <tt>A</tt> </td><td> <tt>A</tt> </td><td>...</td><td> <tt>A</tt> </td><td> <tt>A</tt> </td><td> <tt>a</tt> </td><td> <tt>a</tt> </td><td>...</td><td> <tt>a</tt> </td><td> <tt>a</tt> </td>
 	</tr>
 	<tr>
-		<td> <tt>?</tt> </td><td> <tt>0</tt> </td><td>...</td><td> <tt>0</tt> </td><td> <tt>1</tt> </td><td> <tt>1</tt> </td><td> <tt>0</tt> </td>><td>...</td><td> <tt>0</tt> </td>><td> <tt>1</tt> </td><td> <tt>1</tt> </td><td> <tt>0</tt> </td><td>...</td>><td> <tt>0</tt> </td><td> <tt>?</tt> </td>
+	<td><tt>?</tt></td> <td><tt>0</tt></td> <td>...</td> <td><tt>0</tt></td> <td><tt>1</tt></td> <td><tt>1</tt></td> <td><tt>0</tt></td> <td>...</td> <td><tt>0</tt></td> <td><tt>1</tt></td> <td> <tt>1</tt> </td><td> <tt>0</tt> </td><td>...</td><td> <tt>0</tt> </td><td> <tt>?</tt> </td>
 	</tr>
 </table>
+
 
 This allows us to construct groups of cells for the predecessor cells.
 Each group consists of two sets, all cells in a set have the same color and the cells in one set has the opposite color of cells in the other set.
