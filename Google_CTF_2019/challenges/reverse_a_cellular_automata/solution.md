@@ -12,14 +12,14 @@ As described on the website of the challenge, we only need to consider the decry
 Let us start by reading up on `rule 126`, I used [this](http://mathworld.wolfram.com/Rule126.html) webpage.
 For convienence, I will illustrate the transition rules below.
 
-1. ![rule 1][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule1.png)]
-1. ![rule 2][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule2.png)]
-1. ![rule 3][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule3.png)]
-1. ![rule 4][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule4.png)]
-1. ![rule 5][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule5.png)]
-1. ![rule 6][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule6.png)]
-1. ![rule 7][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule7.png)]
-1. ![rule 8][(https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule8.png)]
+1. ![rule 1](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule1.png)
+1. ![rule 2](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule2.png)
+1. ![rule 3](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule3.png)
+1. ![rule 4](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule4.png)
+1. ![rule 5](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule5.png)
+1. ![rule 6](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule6.png)
+1. ![rule 7](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule7.png)
+1. ![rule 8](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2019/challenges/reverse_a_cellular_automata/images/rule8.png)
 
 First, we have to determine if `0` corresponds to a white cell, or a black cell.
 The website gives us some example transitions, so we implement a Python script to perform `rule 126` and check which interpretation leads to the correct output.
