@@ -1,7 +1,7 @@
 # Instructions
 It's hard to reverse a step in a cellular automata, but solvable if done right.
-Further instructions are given on the webpage:
-<https://cellularautomata.web.ctfcompetition.com/>
+Further instructions are given on the webpage, mirrored:
+<a href="files/webpage.md">here</a>
 
 # Solution
 
@@ -11,6 +11,8 @@ As described on the website of the challenge, we only need to consider the decry
 
 Let us start by reading up on `rule 126`, I used [this](http://mathworld.wolfram.com/Rule126.html) webpage.
 For convienence, I will illustrate the transition rules below.
+Each image illustrates a rule.
+For each rule, the color of the top middle cell and its two neighbors determine the color of the bottom middle cell.
 
 <table>
 	<tr>
