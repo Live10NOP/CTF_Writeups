@@ -31,7 +31,7 @@ def measure(rx_qubits, basis):
         if b == 'x':
             q = rotate_45(q)
         probability_zero = round(pow(q.real, 2), 1)
-        robability_one = round(pow(q.imag, 2), 1)
+        probability_one = round(pow(q.imag, 2), 1)
         measured_bits += str(numpy.random.choice(numpy.arange(0, 2), p=[probability_zero, probability_one]))
     return measured_bits
 ```
