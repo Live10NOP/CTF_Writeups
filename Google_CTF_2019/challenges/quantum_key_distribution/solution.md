@@ -14,13 +14,13 @@ On the other hand, if you want to get an idea of how it is possible to solve a c
 The challenge instructions clearly state that the challenge is about the BB84 quantum key distribution scheme, so it's probably a good idea to start by reading up on that.
 I used <a href="https://en.wikipedia.org/wiki/BB84">Wikipedia</a>.
 
-We have to send the server 512 qubits, each a pair of integers where one integer `r` represents the real component and the other `i` the imaginary component, such that `round(pow(r, 2), 1) + round(pow(i, 2), 1) == 1.0`.
-Along with the qubits, we need to send a basis 512 characters, each `x`, or `+`, the basis.
+We have to send the server 512 qubits, each a pair of integers where one integer `a` represents the real component and the other `b` the imaginary component, such that `round(pow(a, 2), 1) + round(pow(b, 2), 1) == 1.0`.
+Along with the qubits, we need to send 512 characters, each `x`, or `+`, the basis.
 
 The server is going to create its own basis of the same length and then use this basis to measure our qubits to create a bitstring.
 Measuring works as follows:
-For a qubit with real component `r` and imaginary component `i` with basis `+`, the probability that the bit is `0` is round((r * r), 1) and the probability that the bit is `1` is round((i * i), 1).
-On the other hand, when the basis is `x`, the probability for `0` is round(0.707(r + i), 1) and the probability that the bit is `1` is round(0.707r, 1) (this is just multiplication of complex numbers).
+For a qubit with real component `a` and imaginary component `b` with basis `+`, the probability that the bit is `0` is round((a * a), 1) and the probability that the bit is `1` is round((b * b), 1).
+On the other hand, when the basis is `x`, the probability for `0` is round(0.707(a + b), 1) and the probability that the bit is `1` is round(0.707(b - a), 1) (this is just multiplication of complex numbers).
 Using these probabilities, a random bit is generated.
 
 This can be seen from the server code:
@@ -46,7 +46,8 @@ assert measured_bits1 == measured_bits2
 
 I noticed, however that I can recreate the bits exactly, when I use only `+` bases.
 So, we send the server a list of random qubits each with the `+` basis.
-The server will return its basis and we can recreate the key by selecting the measured bits where our bases correspond to the server's.
+The server will return its basis (a random string of `+` and `x`).
+Now, we can recreate the key by selecting the measured bits where our bases correspond to the server's.
 
 We use the first couple of bytes of this key in an XOR operation with the server announcement to obtain the decryption key.
 
