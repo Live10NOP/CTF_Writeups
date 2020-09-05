@@ -17,7 +17,7 @@ def main():
     concrete_flag = found_state.solver.eval(symbolic_flag, cast_to=bytes)
     flag = concrete_flag.decode('ascii')
     assert flag == "CTF{S1MDf0rM3!}"
-    print("{}".format(flag))
+    print(flag)
 
 
 if __name__ == "__main__":
