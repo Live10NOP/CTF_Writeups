@@ -13,6 +13,7 @@ So, we know the challenge expects us to enter the flag via standard input.
 
 When start by analyzing `a.out` in radare2.
 The following image shows the disassembled machine code of the main function.
+![The disassembled machine code of the main function.](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2020/challenges/beginnger/images/main.png)
 
 At instruction `0x000010a9` we see a call to `scanf`.
 This is where the binary reads in the input.
@@ -53,7 +54,7 @@ symbolic_chars = [found_state.mem[found_state.regs.rbp + i].char.resolved for i 
 Since these bytes correspond to user input, they will be symbolic (as opposed to concrete), because user input can take on any value.
 However, as we have reached the success state, these symbolic bytes will be constrained to values that are legal in this program state.
 We want to evaluate these symbolic characters, with respect to the constraints, in order to obtain input that will allow us to reach the success state.
-First, we concanate the symbolic characters together, so that we can solve them as a group.
+First, we concatenate the symbolic characters together, so that we can solve them as a group.
 ```Python
 symbolic_flag = claripy.Concat(*symbolic_chars)
 ```
@@ -81,3 +82,4 @@ We confirm this by providing it to `./a.out` as input:
 $ echo 'CTF{S1MDf0rM3!}' | ./a.out 
 Flag: SUCCESS
 ```
+The complete solution script can be found in [solve.py](https://github.com/Live10NOP/CTF_Writeups/blob/master/Google_CTF_2020/challenges/beginnger/solve.py).
