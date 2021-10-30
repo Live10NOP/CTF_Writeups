@@ -92,7 +92,7 @@ jmp _ret1
 ```
 During simulation, the `call` instruction pushes the address of the `x` "instruction" to the stack (its fine if this is an illegal instruction, since it will not be executed in either simulation or execution).
 Then, it branches to `_call1`, but just to jump back immediately.
-At this point we have:
+At this point we have:  
 `rsp --> < x insn addr> --> < x >`
 Therefore, the instructions below will load `x` into `rax`.
 ```asm
@@ -108,7 +108,7 @@ mov rax, [rsp]
 mov rax, [rax]
 ...
 ```
-Therefore, we have:
+Therefore, we have:  
 `rsp --> < some addr > --> y`
 In this case, the instructions below will load `y` into `rax`.
 ```asm
