@@ -1,6 +1,11 @@
 
 # Flattened
 
+## Preface
+It turns out there is a much [simpler solution](https://ctftime.org/writeup/31124) to the challenge, that relies on self-modifying shellcode (I could have sworn I tried this).
+This writeup explains a more complicated solution, taking a different approach.
+It has the advantage of not requiring memory that is both writeable and executable.
+
 ## Overview
 
 ### Challenge Overview
@@ -14,7 +19,7 @@ We need to supply it with shellcode that passes (or bypasses) this filter in ord
 Our approach works by creating shellcode that passes the filter, but when the branching instructions are removed, the semantics change in order to retrieve the flag.
 
 ## Challenge
-After receiveing the shellcode, the challenge first simulates it with [qilling](https://github.com/qilingframework/qiling) (we refer to this as the _simulation phase_).
+After receiving the shellcode, the challenge first simulates it with [qilling](https://github.com/qilingframework/qiling) (we refer to this as the _simulation phase_).
 All instructions that are executed during the simulation phase are inserted into a buffer, with the exception of branching instructions (`jmp`, `call`, `ret`, etc.)
 We refer to the shellcode in this buffer, as the _flattened_ shellcode.
 If an _illegal syscall_ is encountered during simulation, that is, a syscall for which register `rax` is neither 1 (`write`) nor 60 (`exit`), the simulation phase aborts and the challenge ends.
