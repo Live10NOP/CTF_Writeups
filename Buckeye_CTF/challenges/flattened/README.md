@@ -1,24 +1,26 @@
 
-### Overview
+# Flattened
 
-#### Challenge Overview
+## Overview
+
+### Challenge Overview
 
 The challenge features a program that receives shellcode as input, which it then executes.
 The catch is that the program first removes all branching instructions from the shellcode before executing it and aborts on illegal system calls (syscalls).
 We need to supply it with shellcode that passes (or bypasses) this filter in order to retrieve the flag.
 
 
-#### Approach Overview
+### Approach Overview
 Our approach works by creating shellcode that passes the filter, but when the branching instructions are removed, the semantics change in order to retrieve the flag.
 
-### Challenge
+## Challenge
 After receiveing the shellcode, the challenge first simulates it with [qilling](https://github.com/qilingframework/qiling) (we refer to this as the _simulation phase_).
-All instructions that are executed during the simulation phase are inserted into a buffer, with the exception of branching instructions (jmp, call, ret, etc.)
+All instructions that are executed during the simulation phase are inserted into a buffer, with the exception of branching instructions (`jmp`, `call`, `ret`, etc.)
 We refer to the shellcode in this buffer, as the _flattened_ shellcode.
 If an _illegal syscall_ is encountered during simulation, that is, a syscall for which register `rax` is neither 1 (`write`) nor 60 (`exit`), the simulation phase aborts and the challenge ends.
 Otherwise, the instructions are executed on the host, which we refer to as the _execution phase_.
 
-### Approach
+## Approach
 
 We start with the stock shellcode for retrieving the flag from a file named "flag.txt".
 The following shellcode opens the file named "flag.txt", reads its content to a buffer, prints this buffer to `STDOUT` and exists.
@@ -183,7 +185,7 @@ mov rdi, [rdi]
 syscall ; read file (execution) / write "" (simulation)
 
 
-; Since the "write" and "exit" syscalls are legal, we can use the stock shellcode from henceforth.
+; Since the "write" and "exit" syscalls are legal, we can use the stock shellcode from here.
 ; --- write the flag ---
 mov rdx, rax ; move num chars, returned from "read" syscall to "count" argument for "write"
 xor rdi, rdi
